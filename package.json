@@ -1,5 +1,5 @@
 {
-  "name": "defitrack-js-api",
+  "name": "@defitrack/js-client",
   "version": "1.0.0",
   "description": "Client-side js library for easy use of the Defitrack Defi API",
   "browser": "./src/index.js",
