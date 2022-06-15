@@ -1,4 +1,4 @@
-export type Protocol = {
+export type ProtocolModel = {
     name: string,
     slug: string,
     logo: string

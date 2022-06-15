@@ -12,6 +12,6 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 }));
 exports.__esModule = true;
 exports.NetworkApi = void 0;
-var NetworkApi_1 = require("./network/NetworkApi");
+var NetworkApi_1 = require("./network/NetworkService");
 __createBinding(exports, NetworkApi_1, "NetworkApi");
 console.log("test");

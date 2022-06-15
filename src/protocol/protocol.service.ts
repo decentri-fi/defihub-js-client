@@ -1,9 +1,9 @@
 import axios from "axios";
-import {Protocol} from "./Protocol";
+import {ProtocolModel} from "./protocol.model";
 
-export class ProtocolApi {
+export class ProtocolService {
 
-    public async getProtocols(): Promise<Array<Protocol>> {
+    public async list(): Promise<Array<ProtocolModel>> {
         const response = await axios.get("https://api.defitrack.io/protocols")
         return response.data
     }
