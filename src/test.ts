@@ -1,9 +1,9 @@
-import {DefitrackModule} from "./defitrack.module";
+import defitrack from "./index";
+import {Network} from "./network/network.model";
+import {LendingMarket} from "./lending/lending.model";
 
 const run = async () => {
-    const defitrack = new DefitrackModule()
-    const tokenInfo = await defitrack.pooling().markets("uniswap")
-    console.log(tokenInfo)
+    const lendingMarkets: Array<LendingMarket> = await defitrack.lending().markets("aave")
 }
 
 run();

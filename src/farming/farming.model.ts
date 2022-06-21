@@ -15,4 +15,5 @@ export type FarmingMarket = {
     marketSize: Big | null,
     apr: Big | null,
     prepareInvestmentSupported: boolean
+    marketType: string
 }

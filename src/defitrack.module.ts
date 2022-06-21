@@ -4,6 +4,7 @@ import {ERC20Service} from "./erc20/erc20.service";
 import {LendingService} from "./lending/lending.service";
 import {FarmingService} from "./farming/farming.service";
 import {PoolingService} from "./pooling/pooling.service";
+import {InvestService} from "./invest/invest.service";
 
 export class DefitrackModule {
 
@@ -13,6 +14,7 @@ export class DefitrackModule {
     private readonly _lending: LendingService;
     private readonly _farming: FarmingService;
     private readonly _pooling: PoolingService;
+    private readonly _invest: InvestService
 
     constructor() {
         this._protocols = new ProtocolService()
@@ -21,6 +23,7 @@ export class DefitrackModule {
         this._lending = new LendingService();
         this._farming = new FarmingService();
         this._pooling = new PoolingService();
+        this._invest = new InvestService();
     }
 
     public protocols() {
@@ -45,5 +48,9 @@ export class DefitrackModule {
 
     public lending() {
         return this._lending;
+    }
+
+    public invest() {
+        return this._invest;
     }
 }

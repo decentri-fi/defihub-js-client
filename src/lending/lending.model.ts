@@ -13,4 +13,5 @@ export type LendingMarket = {
     poolType: string,
     marketSize: Big,
     prepareInvestmentSupported: Boolean
+    marketType: string,
 }
