@@ -1,12 +1,16 @@
 {
   "name": "@defitrack/js-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Client-side js library for easy use of the Defitrack Defi API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/defitrack/js-api.git"
   },
-  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
   "keywords": [
     "Defi",
     "Web3",
