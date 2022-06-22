@@ -1,6 +1,6 @@
 {
   "name": "@defitrack/js-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Client-side js library for easy use of the Defitrack Defi API",
   "repository": {
     "type": "git",
