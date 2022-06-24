@@ -1,11 +1,9 @@
 import defitrack from "./index";
-import {Network} from "./network/network.model";
-import {LendingMarket} from "./lending/lending.model";
-import {PoolingMarket} from "./pooling/pooling.model";
 
 const run = async () => {
-    const lendingMarkets: Array<LendingMarket> = await defitrack.lending().markets("aave")
-    console.log(await lendingMarkets[0].enter("0xf977814e90da44bfa03b6295a0616a897441acec"))
+
+    const price = await defitrack.prices().calculate('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2', 'ETHEREUM', 1)
+    console.log(price);
 }
 
 run();

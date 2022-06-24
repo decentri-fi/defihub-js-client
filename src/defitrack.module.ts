@@ -5,6 +5,7 @@ import {LendingService} from "./lending/lending.service";
 import {FarmingService} from "./farming/farming.service";
 import {PoolingService} from "./pooling/pooling.service";
 import {InvestService} from "./invest/invest.service";
+import {PriceService} from "./price/price.service";
 
 export class DefitrackModule {
 
@@ -14,7 +15,8 @@ export class DefitrackModule {
     private readonly _lending: LendingService;
     private readonly _farming: FarmingService;
     private readonly _pooling: PoolingService;
-    private readonly _invest: InvestService
+    private readonly _invest: InvestService;
+    private readonly _prices: PriceService;
 
     constructor() {
         this._protocols = new ProtocolService()
@@ -24,6 +26,7 @@ export class DefitrackModule {
         this._lending = new LendingService(this._invest);
         this._farming = new FarmingService(this._invest);
         this._pooling = new PoolingService(this._invest);
+        this._prices = new PriceService();
     }
 
     public protocols() {
@@ -52,5 +55,9 @@ export class DefitrackModule {
 
     public invest() {
         return this._invest;
+    }
+
+    public prices() {
+        return this._prices;
     }
 }
