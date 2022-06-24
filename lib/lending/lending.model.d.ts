@@ -13,4 +13,8 @@ export declare type LendingMarket = {
     marketSize: Big;
     prepareInvestmentSupported: Boolean;
     marketType: string;
+    enter: Function;
+};
+export declare type LendingPosition = LendingMarket & {
+    amount: Big;
 };

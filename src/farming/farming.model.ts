@@ -17,3 +17,7 @@ export type FarmingMarket = {
     prepareInvestmentSupported: boolean
     marketType: string
 }
+
+export type FarmingPosition = FarmingMarket & {
+    amount: Big
+}

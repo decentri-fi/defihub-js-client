@@ -12,6 +12,15 @@ Installing the library can be done using the following command:
 npm i @defitrack/js-client
 ```
 
+# Integration
+
+```javascript
+import defitrack from "@defitrack/js-client";
+
+
+const lendingMarkets = await defitrack.lending().markets("aave")
+```
+
 # Contributing
 
 ## Building the repository

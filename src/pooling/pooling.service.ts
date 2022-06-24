@@ -1,15 +1,43 @@
 import axios from "axios";
 import {PoolingMarket} from "./pooling.model";
-import {LendingMarket} from "../lending/lending.model";
+import {PoolingPosition} from "./pooling.model";
+import {InvestService} from "../invest/invest.service";
 
 export class PoolingService {
-    public async markets(protocol: string): Promise<Array<PoolingMarket>> {
-        const response = await axios.get(`https://api.defitrack.io/${protocol}/pooling/all-markets`)
-        return response.data
+
+    private investService: InvestService;
+
+    constructor(investService: InvestService) {
+        this.investService = investService;
     }
 
-    public async marketsForToken(protocol: string, token: string, network: string): Promise<Array<LendingMarket>> {
+    public async markets(protocol: string): Promise<Array<PoolingMarket>> {
+        const response = await axios.get(`https://api.defitrack.io/${protocol}/pooling/all-markets`)
+        return response.data.map((market: PoolingMarket) => {
+            return {
+                ...market,
+                enter: this.investService.investFunction(market)
+            }
+        });
+    }
+
+    public async marketsForToken(protocol: string, token: string, network: string): Promise<Array<PoolingMarket>> {
         const response = await axios.get(`https://api.defitrack.io/${protocol}/pooling/markets?token=${token}&network=${network}`)
-        return response.data
+        return response.data.map((market: PoolingMarket) => {
+            return {
+                ...market,
+                enter: this.investService.investFunction(market)
+            }
+        });
+    }
+
+    public async positions(protocol: string, user: string): Promise<Array<PoolingPosition>> {
+        const response = await axios.get(`https://api.defitrack.io/${protocol}/pooling/${user}/positions`)
+        return response.data.map((market: PoolingPosition) => {
+            return {
+                ...market,
+                enter: this.investService.investFunction(market)
+            }
+        });
     }
 }

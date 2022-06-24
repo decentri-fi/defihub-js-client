@@ -14,4 +14,9 @@ export type LendingMarket = {
     marketSize: Big,
     prepareInvestmentSupported: Boolean
     marketType: string,
+    enter: Function
+}
+
+export type LendingPosition = LendingMarket & {
+    amount: Big
 }

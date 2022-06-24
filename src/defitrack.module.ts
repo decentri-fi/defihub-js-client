@@ -19,11 +19,11 @@ export class DefitrackModule {
     constructor() {
         this._protocols = new ProtocolService()
         this._networks = new NetworkService();
-        this._erc20 = new ERC20Service();
-        this._lending = new LendingService();
-        this._farming = new FarmingService();
-        this._pooling = new PoolingService();
         this._invest = new InvestService();
+        this._erc20 = new ERC20Service();
+        this._lending = new LendingService(this._invest);
+        this._farming = new FarmingService(this._invest);
+        this._pooling = new PoolingService(this._invest);
     }
 
     public protocols() {

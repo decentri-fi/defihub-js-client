@@ -1,6 +1,6 @@
-import { FarmingMarket } from "../farming/farming.model";
-import { LendingMarket } from "../lending/lending.model";
-import { PoolingMarket } from "../pooling/pooling.model";
+import { FarmingMarket, FarmingPosition } from "../farming/farming.model";
+import { LendingMarket, LendingPosition } from "../lending/lending.model";
+import { PoolingMarket, PoolingPosition } from "../pooling/pooling.model";
 export declare class InvestService {
-    invest(market: (LendingMarket | FarmingMarket | PoolingMarket), user: string, amount?: (BigInteger | null)): Promise<any>;
+    investFunction(market: (LendingMarket | FarmingMarket | PoolingMarket | PoolingPosition | LendingPosition | FarmingPosition)): ((user: string, amount?: (BigInteger | null)) => Promise<any>) | null;
 }

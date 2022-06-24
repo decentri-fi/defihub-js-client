@@ -16,3 +16,6 @@ export declare type FarmingMarket = {
     prepareInvestmentSupported: boolean;
     marketType: string;
 };
+export declare type FarmingPosition = FarmingMarket & {
+    amount: Big;
+};

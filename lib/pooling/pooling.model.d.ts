@@ -14,3 +14,6 @@ export declare type PoolingMarket = {
     prepareInvestmentSupported: boolean;
     marketType: string;
 };
+export declare type PoolingPosition = PoolingMarket & {
+    amount: Big;
+};
