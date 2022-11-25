@@ -1,5 +1,5 @@
-import {DefitrackModule} from "./defitrack.module";
+import {DefihubModule} from "./defihub.module";
 
-const defitrack = new DefitrackModule()
+const defihub = new DefihubModule()
 
-export default defitrack
+export default defihub

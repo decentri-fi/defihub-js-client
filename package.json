@@ -1,10 +1,10 @@
 {
-  "name": "@defitrack/js-client",
-  "version": "1.0.5",
-  "description": "Client-side js library for easy use of the Defitrack Defi API",
+  "name": "@decentri.fi/defi-hub",
+  "version": "2.0.0",
+  "description": "Client-side js library for easy use of the Decentrifi Defi Hub",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/defitrack/js-api.git"
+    "url": "git+https://github.com/decentri-fi/defihub-js-client.git"
   },
   "publishConfig": {
     "access": "public"

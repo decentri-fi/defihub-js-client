@@ -1,9 +1,9 @@
-import defitrack from "./index";
+import defihub from "./index";
 
 const run = async () => {
 
-    const price = await defitrack.prices().calculate('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2', 'ETHEREUM', 1)
-    console.log(price);
+    const info = await defihub.events().decodeFromTransaction('ETHEREUM', '0x69520595ae0ddce042167170dfa4ce0fc98611f7b3e3d90a32fdcd44620ef357');
+    console.log(info)
 }
 
 run();

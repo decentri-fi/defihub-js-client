@@ -1,24 +1,24 @@
-Defitrack Javascript Client
+Decentrifi Defi Hub Javascript Client
 ===
 
-The Defitrack javascript client provides users with an easy to integrate library.
-It's written in Typescript and implements the API located at https://docs.defitrack.io/api-endpoints.
+The Decentrifi Defi Hub javascript client provides users with an easy to integrate library.
+It's written in Typescript and implements the API located at https://docs.decentri.fi/api-endpoints.
 
 # Dependency
 
 Installing the library can be done using the following command:
 
 ```bash
-npm i @defitrack/js-client
+npm i @decentri.fi/defi-hub
 ```
 
 # Integration
 
 ```javascript
-import defitrack from "@defitrack/js-client";
+import defihub from "@decentri.fi/defi-hub";
 
 
-const lendingMarkets = await defitrack.lending().markets("aave")
+const lendingMarkets = await defihub.lending().markets("aave")
 ```
 
 # Contributing
