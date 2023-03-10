@@ -1,14 +1,16 @@
 import axios from "axios";
 import {LendingMarket, LendingPosition} from "./lending.model";
-import {PoolingMarket} from "../pooling/pooling.model";
 import {InvestService} from "../invest/invest.service";
+import {ExitService} from "../exit/exit.service";
 
 export class LendingService {
 
     private investService: InvestService;
+    private exitService: ExitService;
 
-    constructor(investService: InvestService) {
+    constructor(investService: InvestService, exitService: ExitService) {
         this.investService = investService;
+        this.exitService = exitService;
     }
 
     public async markets(protocol: string): Promise<Array<LendingMarket>> {
@@ -31,12 +33,13 @@ export class LendingService {
         });
     }
 
-    public async positions(protocol: string, user: string): Promise<Array<LendingPosition>>{
+    public async positions(protocol: string, user: string): Promise<Array<LendingPosition>> {
         const response = await axios.get(`https://api.decentri.fi/${protocol}/lending/${user}/positions`)
-        return response.data.map((market: LendingPosition) => {
+        return response.data.map((position: LendingPosition) => {
             return {
-                ...market,
-                enter: this.investService.investFunction(market)
+                ...position,
+                enter: this.investService.investFunction(position),
+                exit: this.exitService.exitPositionFunction(position)
             }
         });
     }

@@ -9,6 +9,7 @@ import {PriceService} from "./price/price.service";
 import {StatisticsService} from "./statistics/statistics.service";
 import {ClaimService} from "./claiming/claiming.service";
 import {EventService} from "./events/event.service";
+import {ExitService} from "./exit/exit.service";
 
 export class DefihubModule {
 
@@ -26,9 +27,10 @@ export class DefihubModule {
 
     constructor() {
         this._invest = new InvestService();
-        this._lending = new LendingService(this._invest);
-        this._farming = new FarmingService(this._invest);
-        this._pooling = new PoolingService(this._invest);
+        const _exit = new ExitService();
+        this._lending = new LendingService(this._invest, _exit);
+        this._farming = new FarmingService(this._invest, _exit);
+        this._pooling = new PoolingService(this._invest, _exit);
         this._protocols = new ProtocolService()
         this._networks = new NetworkService();
         this._erc20 = new ERC20Service();

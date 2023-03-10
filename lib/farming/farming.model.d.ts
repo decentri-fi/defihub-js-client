@@ -14,6 +14,7 @@ export declare type FarmingMarket = {
     marketSize: Big | null;
     apr: Big | null;
     prepareInvestmentSupported: boolean;
+    exitPositionSupported: boolean;
     marketType: string;
 };
 export declare type FarmingPosition = FarmingMarket & {

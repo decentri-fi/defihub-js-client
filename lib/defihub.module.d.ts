@@ -8,6 +8,7 @@ import { InvestService } from "./invest/invest.service";
 import { PriceService } from "./price/price.service";
 import { StatisticsService } from "./statistics/statistics.service";
 import { ClaimService } from "./claiming/claiming.service";
+import { EventService } from "./events/event.service";
 export declare class DefihubModule {
     private readonly _protocols;
     private readonly _networks;
@@ -19,10 +20,12 @@ export declare class DefihubModule {
     private readonly _prices;
     private readonly _statistics;
     private readonly _claiming;
+    private readonly _events;
     constructor();
     protocols(): ProtocolService;
     networks(): NetworkService;
     erc20(): ERC20Service;
+    events(): EventService;
     pooling(): PoolingService;
     farming(): FarmingService;
     lending(): LendingService;

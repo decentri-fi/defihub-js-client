@@ -1,6 +1,6 @@
 {
   "name": "@decentri.fi/defi-hub",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Client-side js library for easy use of the Decentrifi Defi Hub",
   "repository": {
     "type": "git",

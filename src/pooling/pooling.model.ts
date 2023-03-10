@@ -13,6 +13,7 @@ export type PoolingMarket = {
     apr: Big | null,
     marketSize: Big | null,
     prepareInvestmentSupported: boolean
+    exitPositionSupported: boolean
     marketType: string,
 }
 
