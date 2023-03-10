@@ -6,7 +6,7 @@ import axios from "axios";
 export class ExitService {
     public exitPositionFunction(market: (LendingMarket | FarmingMarket | PoolingMarket | PoolingPosition | LendingPosition | FarmingPosition)) {
         if (market.exitPositionSupported) {
-            return async ( user: string, amount: (BigInteger)) => {
+            return async (user: string, amount: (BigInteger)) => {
                 const response = await axios.post(`https://api.decentri.fi/${market.protocol.slug}/${market.marketType}/markets/${market.id}/exit`, {
                     user: user,
                     amount: amount

@@ -19,4 +19,5 @@ export declare type FarmingMarket = {
 };
 export declare type FarmingPosition = FarmingMarket & {
     amount: Big;
+    nativeAmount: Big;
 };

@@ -20,5 +20,6 @@ export type FarmingMarket = {
 }
 
 export type FarmingPosition = FarmingMarket & {
-    amount: Big
+    amount: Big;
+    nativeAmount: Big;
 }

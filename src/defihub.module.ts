@@ -20,6 +20,8 @@ export class DefihubModule {
     private readonly _farming: FarmingService;
     private readonly _pooling: PoolingService;
     private readonly _invest: InvestService;
+
+    private readonly _exit: ExitService;
     private readonly _prices: PriceService;
     private readonly _statistics: StatisticsService;
     private readonly _claiming: ClaimService;
@@ -27,10 +29,10 @@ export class DefihubModule {
 
     constructor() {
         this._invest = new InvestService();
-        const _exit = new ExitService();
-        this._lending = new LendingService(this._invest, _exit);
-        this._farming = new FarmingService(this._invest, _exit);
-        this._pooling = new PoolingService(this._invest, _exit);
+        this._exit = new ExitService();
+        this._lending = new LendingService(this._invest, this._exit);
+        this._farming = new FarmingService(this._invest, this._exit);
+        this._pooling = new PoolingService(this._invest, this._exit);
         this._protocols = new ProtocolService()
         this._networks = new NetworkService();
         this._erc20 = new ERC20Service();
@@ -70,6 +72,10 @@ export class DefihubModule {
 
     public invest() {
         return this._invest;
+    }
+
+    public exit() {
+        return this._exit;
     }
 
     public prices() {

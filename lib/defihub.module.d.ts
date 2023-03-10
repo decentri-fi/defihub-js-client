@@ -9,6 +9,7 @@ import { PriceService } from "./price/price.service";
 import { StatisticsService } from "./statistics/statistics.service";
 import { ClaimService } from "./claiming/claiming.service";
 import { EventService } from "./events/event.service";
+import { ExitService } from "./exit/exit.service";
 export declare class DefihubModule {
     private readonly _protocols;
     private readonly _networks;
@@ -17,6 +18,7 @@ export declare class DefihubModule {
     private readonly _farming;
     private readonly _pooling;
     private readonly _invest;
+    private readonly _exit;
     private readonly _prices;
     private readonly _statistics;
     private readonly _claiming;
@@ -30,6 +32,7 @@ export declare class DefihubModule {
     farming(): FarmingService;
     lending(): LendingService;
     invest(): InvestService;
+    exit(): ExitService;
     prices(): PriceService;
     statistics(): StatisticsService;
     claiming(): ClaimService;
