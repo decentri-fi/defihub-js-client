@@ -8,7 +8,7 @@ export declare type FarmingMarket = {
     protocol: Protocol;
     name: string;
     stakedToken: FungibleToken;
-    reward: Array<FungibleToken>;
+    rewardTokens: Array<FungibleToken>;
     contractAddress: string;
     vaultType: string;
     marketSize: Big | null;
@@ -18,6 +18,8 @@ export declare type FarmingMarket = {
     marketType: string;
 };
 export declare type FarmingPosition = FarmingMarket & {
-    amount: Big;
-    nativeAmount: Big;
+    stakedAmount: Big;
+    stakedAmountDecimal: Big;
+    tokenAmount: Big;
+    tokenAmountDecimal: Big;
 };

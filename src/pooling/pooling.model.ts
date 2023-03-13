@@ -18,6 +18,6 @@ export type PoolingMarket = {
 }
 
 export type PoolingPosition = PoolingMarket & {
+    amountDecimal: Big;
     amount: Big;
-    nativeAmount: Big;
 }

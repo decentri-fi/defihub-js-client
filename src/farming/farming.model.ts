@@ -9,7 +9,7 @@ export type FarmingMarket = {
     protocol: Protocol,
     name: string,
     stakedToken: FungibleToken,
-    reward: Array<FungibleToken>,
+    rewardTokens: Array<FungibleToken>,
     contractAddress: string, //deprecated
     vaultType: string,
     marketSize: Big | null,
@@ -20,6 +20,8 @@ export type FarmingMarket = {
 }
 
 export type FarmingPosition = FarmingMarket & {
-    amount: Big;
-    nativeAmount: Big;
+    stakedAmount: Big;
+    stakedAmountDecimal: Big;
+    tokenAmount: Big;
+    tokenAmountDecimal: Big;
 }
