@@ -1,5 +1,5 @@
 import {DefihubModule} from "./defihub.module";
 
-const defihub = new DefihubModule()
+const defihub: DefihubModule = new DefihubModule()
 
 export default defihub

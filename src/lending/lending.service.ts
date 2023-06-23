@@ -2,13 +2,16 @@ import axios from "axios";
 import {LendingMarket, LendingPosition} from "./lending.model";
 import {InvestService} from "../invest/invest.service";
 import {ExitService} from "../exit/exit.service";
+import {DefiHubConfig} from "../defihub.config";
 
 export class LendingService {
 
     private investService: InvestService;
     private exitService: ExitService;
+    private readonly config: DefiHubConfig;
 
-    constructor(investService: InvestService, exitService: ExitService) {
+    constructor(config: DefiHubConfig, investService: InvestService, exitService: ExitService) {
+        this.config = config;
         this.investService = investService;
         this.exitService = exitService;
     }

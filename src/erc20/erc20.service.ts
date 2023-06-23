@@ -1,8 +1,15 @@
 import {TokenInformation} from "./erc20.model";
 import axios from "axios";
 import Big from "big.js";
+import {DefiHubConfig} from "../defihub.config";
 
 export class ERC20Service {
+
+    private readonly config: DefiHubConfig;
+
+    constructor(config: DefiHubConfig) {
+        this.config = config;
+    }
 
     public async wrapped(network: string): Promise<TokenInformation> {
         const response = await axios.get(`https://api.decentri.fi/erc20/${network}/wrapped`);

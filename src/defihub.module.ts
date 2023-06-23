@@ -10,8 +10,11 @@ import {StatisticsService} from "./statistics/statistics.service";
 import {ClaimService} from "./claiming/claiming.service";
 import {EventService} from "./events/event.service";
 import {ExitService} from "./exit/exit.service";
+import {DefiHubConfig} from "./defihub.config";
 
 export class DefihubModule {
+
+    private readonly _config: DefiHubConfig;
 
     private readonly _protocols: ProtocolService;
     private readonly _networks: NetworkService;
@@ -27,19 +30,21 @@ export class DefihubModule {
     private readonly _claiming: ClaimService;
     private readonly _events: EventService;
 
-    constructor() {
-        this._invest = new InvestService();
-        this._exit = new ExitService();
-        this._lending = new LendingService(this._invest, this._exit);
-        this._farming = new FarmingService(this._invest, this._exit);
-        this._pooling = new PoolingService(this._invest, this._exit);
-        this._protocols = new ProtocolService()
-        this._networks = new NetworkService();
-        this._erc20 = new ERC20Service();
-        this._prices = new PriceService();
-        this._statistics = new StatisticsService();
-        this._claiming = new ClaimService();
-        this._events = new EventService();
+
+    constructor(config: DefiHubConfig = new DefiHubConfig()) {
+        this._config = config;
+        this._invest = new InvestService(config);
+        this._exit = new ExitService(config);
+        this._lending = new LendingService(config, this._invest, this._exit);
+        this._farming = new FarmingService(config, this._invest, this._exit);
+        this._pooling = new PoolingService(config, this._invest, this._exit);
+        this._protocols = new ProtocolService(config)
+        this._networks = new NetworkService(config);
+        this._erc20 = new ERC20Service(config);
+        this._prices = new PriceService(config);
+        this._statistics = new StatisticsService(config);
+        this._claiming = new ClaimService(config);
+        this._events = new EventService(config);
     }
 
     public protocols() {

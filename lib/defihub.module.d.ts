@@ -10,7 +10,9 @@ import { StatisticsService } from "./statistics/statistics.service";
 import { ClaimService } from "./claiming/claiming.service";
 import { EventService } from "./events/event.service";
 import { ExitService } from "./exit/exit.service";
+import { DefiHubConfig } from "./defihub.config";
 export declare class DefihubModule {
+    private readonly _config;
     private readonly _protocols;
     private readonly _networks;
     private readonly _erc20;
@@ -23,7 +25,7 @@ export declare class DefihubModule {
     private readonly _statistics;
     private readonly _claiming;
     private readonly _events;
-    constructor();
+    constructor(config?: DefiHubConfig);
     protocols(): ProtocolService;
     networks(): NetworkService;
     erc20(): ERC20Service;
