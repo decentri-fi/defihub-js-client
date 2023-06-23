@@ -19,6 +19,11 @@ export class ERC20Service {
         return response.data;
     }
 
+    public async getTokenAllowance(network: string, token: string, user: string, spender: string): Promise<Big> {
+        const response = await axios.get(`https://api.decentri.fi/erc20/${network}/allowance/${token}/${user}/${spender}`);
+        return response.data;
+    }
+
     private enrich(data: TokenInformation): TokenInformation & { balanceOf: Function } {
         return {
             ...data,
