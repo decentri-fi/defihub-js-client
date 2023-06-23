@@ -15,6 +15,12 @@ export type PoolingMarket = {
     prepareInvestmentSupported: boolean
     exitPositionSupported: boolean
     marketType: string,
+    decimals: number,
+    erc20Compatible: boolean,
+    price: Big,
+    totalSupply: Big,
+    metadata: Map<String, Object>,
+    updatedAt: number
 }
 
 export type PoolingPosition = PoolingMarket & {

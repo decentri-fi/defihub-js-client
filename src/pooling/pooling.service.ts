@@ -2,6 +2,7 @@ import axios from "axios";
 import {PoolingMarket, PoolingPosition} from "./pooling.model";
 import {InvestService} from "../invest/invest.service";
 import {ExitService} from "../exit/exit.service";
+import {DefiEvent} from "../events/event.model";
 
 export class PoolingService {
 
@@ -42,5 +43,14 @@ export class PoolingService {
                 exit: this.exitService.exitPositionFunction(position),
             }
         });
+    }
+
+    public async history(protocol: string, user: string): Promise<Array<DefiEvent>> {
+        const response = await axios.get(`https://api.decentri.fi/${protocol}/pooling/${user}/history`)
+        if (response.status !== 200) {
+            return [];
+        } else {
+            return response.data;
+        }
     }
 }
