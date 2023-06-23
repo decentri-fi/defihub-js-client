@@ -3,7 +3,7 @@ import { Network } from "../network/network.model";
 import Big from "big.js";
 import { FungibleToken } from "../token/fungibletoken.model";
 import { PreparedTransaction } from "../transaction/transaction.model";
-export declare type Claimable = {
+export type Claimable = {
     id: string;
     name: string;
     type: string;

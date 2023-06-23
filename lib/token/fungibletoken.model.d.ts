@@ -1,1 +1,1 @@
-export declare type FungibleToken = {};
+export type FungibleToken = {};

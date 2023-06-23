@@ -2,7 +2,7 @@ import { Protocol } from "../protocol/protocol.model";
 import { Network } from "../network/network.model";
 import { FungibleToken } from "../token/fungibletoken.model";
 import Big from "big.js";
-export declare type LendingMarket = {
+export type LendingMarket = {
     id: string;
     name: string;
     protocol: Protocol;
@@ -16,6 +16,6 @@ export declare type LendingMarket = {
     marketType: string;
     enter: Function;
 };
-export declare type LendingPosition = LendingMarket & {
+export type LendingPosition = LendingMarket & {
     amount: Big;
 };

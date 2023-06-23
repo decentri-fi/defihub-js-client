@@ -2,7 +2,7 @@ import { Network } from "../network/network.model";
 import { Protocol } from "../protocol/protocol.model";
 import { FungibleToken } from "../token/fungibletoken.model";
 import Big from "big.js";
-export declare type FarmingMarket = {
+export type FarmingMarket = {
     id: string;
     network: Network;
     protocol: Protocol;
@@ -17,7 +17,7 @@ export declare type FarmingMarket = {
     exitPositionSupported: boolean;
     marketType: string;
 };
-export declare type FarmingPosition = FarmingMarket & {
+export type FarmingPosition = FarmingMarket & {
     stakedAmount: Big;
     stakedAmountDecimal: Big;
     tokenAmount: Big;

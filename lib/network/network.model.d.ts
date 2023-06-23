@@ -1,4 +1,4 @@
-export declare type Network = {
+export type Network = {
     name: string;
     logo: string;
     slug: string;

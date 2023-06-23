@@ -2,7 +2,7 @@ import { Protocol } from "../protocol/protocol.model";
 import { Network } from "../network/network.model";
 import { FungibleToken } from "../token/fungibletoken.model";
 import Big from "big.js";
-export declare type PoolingMarket = {
+export type PoolingMarket = {
     id: string;
     address: string;
     name: string;
@@ -15,7 +15,7 @@ export declare type PoolingMarket = {
     exitPositionSupported: boolean;
     marketType: string;
 };
-export declare type PoolingPosition = PoolingMarket & {
+export type PoolingPosition = PoolingMarket & {
     amountDecimal: Big;
     amount: Big;
 };

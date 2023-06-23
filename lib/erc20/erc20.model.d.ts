@@ -1,6 +1,6 @@
 import { Protocol } from "../protocol/protocol.model";
 import { Network } from "../network/network.model";
-export declare type TokenInformation = {
+export type TokenInformation = {
     logo?: string;
     name: string;
     symbol: string;
