@@ -11,12 +11,14 @@ import {ClaimService} from "./claiming/claiming.service";
 import {EventService} from "./events/event.service";
 import {ExitService} from "./exit/exit.service";
 import {DefiHubConfig} from "./defihub.config";
+import {CompanyService} from "./company/company.service";
 
 export class DefihubModule {
 
     private readonly _config: DefiHubConfig;
 
     private readonly _protocols: ProtocolService;
+    private readonly _companies: CompanyService;
     private readonly _networks: NetworkService;
     private readonly _erc20: ERC20Service;
     private readonly _lending: LendingService;
@@ -38,7 +40,8 @@ export class DefihubModule {
         this._lending = new LendingService(config, this._invest, this._exit);
         this._farming = new FarmingService(config, this._invest, this._exit);
         this._pooling = new PoolingService(config, this._invest, this._exit);
-        this._protocols = new ProtocolService(config)
+        this._protocols = new ProtocolService(config);
+        this._companies = new CompanyService(config);
         this._networks = new NetworkService(config);
         this._erc20 = new ERC20Service(config);
         this._prices = new PriceService(config);
@@ -49,6 +52,10 @@ export class DefihubModule {
 
     public protocols() {
         return this._protocols;
+    }
+
+    public companies() {
+        return this._companies;
     }
 
     public networks() {
