@@ -1,4 +1,5 @@
 export declare class DefiHubConfig {
-    private readonly baseUrl;
-    constructor(baseUrl?: string);
+    readonly baseUrl: string;
+    readonly claimablesBaseUrl: string;
+    constructor(baseUrl?: string, claimablesBaseUrl?: string);
 }

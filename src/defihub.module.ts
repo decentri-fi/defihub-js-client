@@ -29,7 +29,7 @@ export class DefihubModule {
     private readonly _exit: ExitService;
     private readonly _prices: PriceService;
     private readonly _statistics: StatisticsService;
-    private readonly _claiming: ClaimService;
+    private readonly _claimables: ClaimService;
     private readonly _events: EventService;
 
 
@@ -46,7 +46,7 @@ export class DefihubModule {
         this._erc20 = new ERC20Service(config);
         this._prices = new PriceService(config);
         this._statistics = new StatisticsService(config);
-        this._claiming = new ClaimService(config);
+        this._claimables = new ClaimService(config);
         this._events = new EventService(config);
     }
 
@@ -98,7 +98,7 @@ export class DefihubModule {
         return this._statistics;
     }
 
-    public claiming() {
-        return this._claiming;
+    public claimables() {
+        return this._claimables;
     }
 }

@@ -11,7 +11,7 @@ export class EventService {
     }
 
     public async decodeFromTransaction(network: string, transactionId: string): Promise<Array<DefiEvent>> {
-        const response = await axios.get(`https://api.decentri.fi/events/decode/${transactionId}?network=${network}`);
+        const response = await axios.get(`${this.config.baseUrl}/events/decode/${transactionId}?network=${network}`);
         return response.data;
     }
 }

@@ -17,7 +17,7 @@ export class LendingService {
     }
 
     public async markets(protocol: string): Promise<Array<LendingMarket>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/lending/all-markets`)
+        const response = await axios.get(`${this.config.baseUrl}/${protocol}/lending/all-markets`)
         return response.data.map((market: LendingMarket) => {
             return {
                 ...market,
@@ -27,7 +27,7 @@ export class LendingService {
     }
 
     public async marketsForToken(protocol: string, token: string, network: string): Promise<Array<LendingMarket>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/lending/markets?token=${token}&network=${network}`)
+        const response = await axios.get(`${this.config.baseUrl}/${protocol}/lending/markets?token=${token}&network=${network}`)
         return response.data.map((market: LendingMarket) => {
             return {
                 ...market,
@@ -37,7 +37,7 @@ export class LendingService {
     }
 
     public async positions(protocol: string, user: string): Promise<Array<LendingPosition>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/lending/${user}/positions`)
+        const response = await axios.get(`${this.config.baseUrl}/${protocol}/lending/${user}/positions`)
         return response.data.map((position: LendingPosition) => {
             return {
                 ...position,

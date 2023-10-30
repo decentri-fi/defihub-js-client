@@ -25,7 +25,7 @@ export declare class DefihubModule {
     private readonly _exit;
     private readonly _prices;
     private readonly _statistics;
-    private readonly _claiming;
+    private readonly _claimables;
     private readonly _events;
     constructor(config?: DefiHubConfig);
     protocols(): ProtocolService;
@@ -40,5 +40,5 @@ export declare class DefihubModule {
     exit(): ExitService;
     prices(): PriceService;
     statistics(): StatisticsService;
-    claiming(): ClaimService;
+    claimables(): ClaimService;
 }

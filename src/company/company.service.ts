@@ -1,5 +1,5 @@
 import {DefiHubConfig} from "../defihub.config";
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 import {Company} from "./company.model";
 
 export class CompanyService {
@@ -11,7 +11,7 @@ export class CompanyService {
     }
 
     public async list(): Promise<Array<Company>> {
-        const response = await axios.get("https://api.decentri.fi/companies")
+        const response: AxiosResponse<Array<Company>> = await axios.get(`${this.config.baseUrl}/companies`)
         return response.data
     }
 }

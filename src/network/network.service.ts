@@ -11,7 +11,7 @@ export class NetworkService {
     }
 
     public async list(): Promise<Array<Network>> {
-        const result = await axios.get("https://api.decentri.fi/networks")
+        const result = await axios.get(`${this.config.baseUrl}/networks`)
         return result.data
     }
 }

@@ -17,7 +17,7 @@ export class FarmingService {
     }
 
     public async markets(protocol: string): Promise<Array<FarmingMarket>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/staking/all-markets`)
+        const response = await axios.get(`${this.config.baseUrl}/${protocol}/staking/all-markets`)
         return response.data.map((market: FarmingMarket) => {
             return {
                 ...market,
@@ -27,7 +27,7 @@ export class FarmingService {
     }
 
     public async marketsForToken(protocol: string, token: string, network: string): Promise<Array<FarmingMarket>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/farming/markets?token=${token}&network=${network}`)
+        const response = await axios.get(`${this.config.baseUrl}/${protocol}/farming/markets?token=${token}&network=${network}`)
         return response.data.map((market: FarmingMarket) => {
             return {
                 ...market,
@@ -37,7 +37,7 @@ export class FarmingService {
     }
 
     public async positions(protocol: string, user: string): Promise<Array<FarmingPosition>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/farming/${user}/positions`)
+        const response = await axios.get(`${this.config.baseUrl}/${protocol}/farming/${user}/positions`)
         return response.data.map((position: FarmingPosition) => {
             return {
                 ...position,

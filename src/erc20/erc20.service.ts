@@ -12,22 +12,22 @@ export class ERC20Service {
     }
 
     public async wrapped(network: string): Promise<TokenInformation> {
-        const response = await axios.get(`https://api.decentri.fi/erc20/${network}/wrapped`);
+        const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/wrapped`);
         return this.enrich(response.data);
     }
 
     public async info(network: string, address: string): Promise<TokenInformation> {
-        const response = await axios.get(`https://api.decentri.fi/erc20/${network}/${address}/token`);
+        const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/${address}/token`);
         return this.enrich(response.data);
     }
 
     public async getTokenBalance(network: string, token: string, user: string): Promise<Big> {
-        const response = await axios.get(`https://api.decentri.fi/erc20/${network}/${token}/${user}`);
+        const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/${token}/${user}`);
         return response.data;
     }
 
     public async getTokenAllowance(network: string, token: string, user: string, spender: string): Promise<Big> {
-        const response = await axios.get(`https://api.decentri.fi/erc20/${network}/allowance/${token}/${user}/${spender}`);
+        const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/allowance/${token}/${user}/${spender}`);
         return response.data;
     }
 

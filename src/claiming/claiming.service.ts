@@ -11,8 +11,8 @@ export class ClaimService {
         this.config = config;
     }
 
-    public async getClaimables(protocol: string, user: string): Promise<Array<Claimable>> {
-        const response = await axios.get(`https://api.decentri.fi/${protocol}/${user}/claimables`)
+    public async getClaimables(user: string): Promise<Array<Claimable>> {
+        const response = await axios.get(this.config.claimablesBaseUrl + `/${user}`)
         return response.data
     }
 }

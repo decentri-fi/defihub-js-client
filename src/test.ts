@@ -1,9 +1,10 @@
 import defihub from "./index";
+import {Claimable} from "./claiming/claiming.model";
 
 const run = async () => {
 
-    const info = await defihub.events().decodeFromTransaction('ETHEREUM', '0x69520595ae0ddce042167170dfa4ce0fc98611f7b3e3d90a32fdcd44620ef357');
-    console.log(info)
+    const claimables: Claimable[] = await defihub.claimables().getClaimables("0xf18adf71266411FF39FfC268843c9A64b3292d86")
+    console.log(claimables)
 }
 
 run();
