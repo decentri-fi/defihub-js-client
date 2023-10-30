@@ -1,7 +1,7 @@
-import { Claimable } from "./claiming.model";
+import { Claimable, ClaimableConfig } from "./claiming.model";
 import { DefiHubConfig } from "../defihub.config";
 export declare class ClaimService {
     private readonly config;
     constructor(config: DefiHubConfig);
-    getClaimables(user: string): Promise<Array<Claimable>>;
+    getClaimables(user: string, _config?: (ClaimableConfig | null)): Promise<Array<Claimable>>;
 }

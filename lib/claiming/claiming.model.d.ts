@@ -14,3 +14,7 @@ export type Claimable = {
     token: FungibleToken;
     claimTransaction: PreparedTransaction;
 };
+export type ClaimableConfig = {
+    include?: Array<string> | undefined;
+    exclude?: Array<string> | undefined;
+};
