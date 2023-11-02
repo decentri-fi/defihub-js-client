@@ -1,7 +1,8 @@
-import {TokenInformation} from "./erc20.model";
+import {Balance, TokenInformation} from "./erc20.model";
 import axios from "axios";
 import Big from "big.js";
 import {DefiHubConfig} from "../defihub.config";
+import {BigNumber} from "@ethersproject/bignumber";
 
 export class ERC20Service {
 
@@ -21,12 +22,18 @@ export class ERC20Service {
         return this.enrich(response.data);
     }
 
-    public async getTokenBalance(network: string, token: string, user: string): Promise<Big> {
+    public async getTokenBalance(network: string, token: string, user: string): Promise<string> {
         const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/${token}/${user}`);
         return response.data;
     }
 
-    public async getTokenAllowance(network: string, token: string, user: string, spender: string): Promise<Big> {
+    public async getTokenBalanceV2(network: string, token: string, user: string): Promise<Balance> {
+        const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/${token}/${user}?v2`);
+        return response.data;
+    }
+
+
+    public async getTokenAllowance(network: string, token: string, user: string, spender: string): Promise<BigNumber> {
         const response = await axios.get(`${this.config.baseUrl}/erc20/${network}/allowance/${token}/${user}/${spender}`);
         return response.data;
     }

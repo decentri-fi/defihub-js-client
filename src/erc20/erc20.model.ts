@@ -13,3 +13,7 @@ export type TokenInformation = {
     network: Network,
     balanceOf: Function
 }
+
+export type Balance = {
+    balance: string
+}

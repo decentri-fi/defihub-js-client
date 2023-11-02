@@ -3,11 +3,10 @@ import {Claimable} from "./claiming/claiming.model";
 
 const run = async () => {
 
-    const claimables: Claimable[] = await defihub.claimables().getClaimables("0xf18adf71266411FF39FfC268843c9A64b3292d86",
-        {
-            include: ['hop'] //can also exclude things you don't need
-        })
-    console.log(claimables)
+    const result =  await defihub.erc20().getTokenBalanceV2(
+        "OPTIMISM", "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb", "0x83A524af3cf8eB146132A2459664f7680A5515bE"
+    )
+    console.log(result)
 }
 
 run();
